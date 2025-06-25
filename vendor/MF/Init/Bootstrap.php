@@ -35,14 +35,14 @@
 
                     $controller = new $class;
                     $action = $route['action'];
-                    $controller->$action(); // Rode a função index ou sobrenos, pegando pelo action de cada route.
+                    $controller->$action(); // Rode a função index ou sobrenos, pegando pelo action da rota.
                 }
             }
         }
 
         public function getUrl() 
         {
-            return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); // Pega a url requisitada: / , /sobre_nos
         }
     }
 
