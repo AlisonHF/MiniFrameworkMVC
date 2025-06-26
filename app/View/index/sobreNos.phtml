@@ -3,9 +3,9 @@
 
 <?php
 
-    foreach($this->view->dados as $key => $registro)
+    foreach($this->view->dados as $key => $info)
     {
-        echo $registro . "<br/>";
+        echo "<h1>" . $info['titulo'] . "</h1><br/>" . $info['descricao'] .'<hr/>';   
     }
 
 ?>

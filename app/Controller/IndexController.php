@@ -2,19 +2,35 @@
 
     namespace app\Controller;
 
+    // recursos do mini framework
+    use MF\Model\Container;
     use MF\Controller\Action;
+    // models
+    use app\Model\Produto;
+    use app\Model\Info;
 
+    
     class IndexController extends Action {
 
         public function index()
         {
-            $this->view->dados = Array('Celular', 'Computador');
+            $produto = Container::getModel('Produto');
+
+            $produtos = $produto->getProdutos();
+
+            $this->view->dados = $produtos;
+
             $this->render('index', 'layout1');
         } 
 
         public function sobrenos()
         {
-            $this->view->dados = Array('Tablet', 'Notebook');
+            $info = Container::getModel('Info');
+            
+            $informacoes = $info->getInfo();
+
+            $this->view->dados = $informacoes;
+
             $this->render('sobreNos', 'layout2');
         }
         
